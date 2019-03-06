@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  mysq_connection: |
+    mysql_host=<INSTANCE_CONNECTION_IP>
+    mysql_user=<INSTANCE_CONNECTION_MYSQL_USER>
+    port=<INSTANCE_CONNECTION_PORT>
+kind: ConfigMap
+metadata:
+  name: wordpress-kubernetes-infrastructure
+  resourceVersion: "1"
