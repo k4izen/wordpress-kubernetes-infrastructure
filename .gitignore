@@ -21,6 +21,6 @@ wordpress/vendor
 # WP-CLI
 wordpress/wp-cli.local.yml
 
-#Kubernetes
-kubernetes/configmap.yaml
-kubernetes/secret-mysql.yaml
+# Kubernetes
+kubernetes/keys/configmap.yaml
+kubernetes/keys/secret-mysql.yaml
