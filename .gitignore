@@ -23,3 +23,4 @@ wordpress/wp-cli.local.yml
 
 #Kubernetes
 kubernetes/configmap.yaml
+kubernetes/secret-mysql.yaml
