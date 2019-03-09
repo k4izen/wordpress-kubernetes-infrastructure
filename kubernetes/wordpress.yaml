@@ -42,7 +42,8 @@ spec:
           mountPath: /PROJECT
       containers:
       - name: nginx
-        image: apiki/nginx:1.13.6.2
+        image: k4izen/nginx:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         env:
@@ -51,10 +52,6 @@ spec:
             configMapKeyRef:
               name: wordpress-kubernetes-infrastructure
               key: redis_connection
-        lifecycle:
-            postStart:
-              exec:
-                command: ["/bin/sh","-c", 'rm -rf /usr/local/openresty/nginx/conf && ln -s /PROJECT/kubernetes/files/nginx /usr/local/openresty/nginx/conf && ln -s /PROJECT/kubernetes/files/nginx /etc/nginx']
         volumeMounts:
         - name: wpdata
           mountPath: /PROJECT
