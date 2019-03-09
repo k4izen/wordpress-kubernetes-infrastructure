@@ -10,7 +10,7 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-  type: NodePort
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -29,14 +29,9 @@ spec:
         project: wordpress-kubernetes-infrastructure  
     spec:
       initContainers:
-      - name: init-clone-repo
-        image: alpine/git
-        args:
-            - clone
-            - --single-branch
-            - --
-            - https://github.com/k4izen/wordpress-kubernetes-infrastructure.git
-            - /PROJECT
+      - name: clone-repo-buid-structure
+        image: k4izen/php:latest
+        command: ["/bin/bash", "-c", "git clone --single-branch -- https://github.com/k4izen/wordpress-kubernetes-infrastructure.git /PROJECT && cd /PROJECT/wordpress && composer install --no-interaction --optimize-autoloader --no-dev"]
         volumeMounts:
         - name: wpdata
           mountPath: /PROJECT
