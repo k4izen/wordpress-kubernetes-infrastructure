@@ -38,6 +38,8 @@ define('RT_WP_NGINX_HELPER_REDIS_HOSTNAME', 'redis.wpk8s.svc.cluster.local');
 define('RT_WP_NGINX_HELPER_REDIS_PORT', 6379);
 define('RT_WP_NGINX_HELPER_REDIS_PREFIX',  'nginx-cache:');
 
+define('CONCATENATE_SCRIPTS', false);
+
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  */
