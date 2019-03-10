@@ -6,6 +6,21 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
+  name: redis
+  namespace: wpk8s
+spec:
+  selector:
+    app: redis
+    project: wordpress-kubernetes-infrastructure
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: php
   namespace: wpk8s
 spec:
@@ -133,3 +148,27 @@ spec:
       volumes:
       - name: wpdata
         emptyDir: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: wpk8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+      project: wordpress-kubernetes-infrastructure
+  template:
+    metadata:
+      labels:
+        app: redis
+        project: wordpress-kubernetes-infrastructure
+    spec:
+      containers:
+      - name: redis
+        image: redis
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 6379
