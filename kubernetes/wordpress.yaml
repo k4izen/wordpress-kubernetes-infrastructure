@@ -117,6 +117,11 @@ spec:
             configMapKeyRef:
               name: wordpress-kubernetes-infrastructure
               key: mysql_connection
+        - name: WORDPRESS
+          valueFrom:
+            configMapKeyRef:
+              name: wordpress-kubernetes-infrastructure
+              key: wordpress
         - name: WORDPRESS_MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:

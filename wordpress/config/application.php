@@ -21,6 +21,18 @@ $webroot_dir = $root_dir . '/web';
  */
 Env::init();
 
+if (! file_exists($root_dir . '/.env')):
+    if( $_SERVER['MYSQL_CONNECTION'] !== null ):
+        file_put_contents($root_dir . '/.env',$_SERVER['MYSQL_CONNECTION'], FILE_APPEND);
+    endif;
+    if( $_SERVER['WORDPRESS_MYSQL_PASSWORD'] !== null ):
+        file_put_contents($root_dir . '/.env','DB_PASSWORD='.$_SERVER['WORDPRESS_MYSQL_PASSWORD'], FILE_APPEND);
+    endif;
+    if( $_SERVER['WORDPRESS'] !== null ):
+        file_put_contents($root_dir . '/.env',$_SERVER['WORDPRESS'], FILE_APPEND);
+        file_put_contents($root_dir . '/.env','WP_SITEURL=${WP_HOME}/wp', FILE_APPEND);
+    endif;
+endif;
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  */
