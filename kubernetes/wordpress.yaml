@@ -104,7 +104,7 @@ metadata:
   name: php
   namespace: wpk8s
 spec:
-  replicas: 8
+  replicas: 3
   selector:
     matchLabels:
       app: php
