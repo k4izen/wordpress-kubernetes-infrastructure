@@ -33,6 +33,10 @@ if (! file_exists($root_dir . '/.env')):
         file_put_contents($root_dir . '/.env','WP_SITEURL=${WP_HOME}/wp', FILE_APPEND);
     endif;
 endif;
+
+define('RT_WP_NGINX_HELPER_REDIS_HOSTNAME', 'redis.wpk8s.svc.cluster.local');
+define('RT_WP_NGINX_HELPER_REDIS_PORT', 6379);
+
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  */
