@@ -87,6 +87,13 @@ spec:
         volumeMounts:
         - name: wpdata
           mountPath: /PROJECT
+        resources:
+          requests:
+            memory: "10Mi"
+            cpu: "1m"
+          limits:
+            memory: "60Mi"
+            cpu: "10m"
       volumes:
       - name: wpdata
         emptyDir: {}
@@ -145,6 +152,13 @@ spec:
         volumeMounts:
         - name: wpdata
           mountPath: /PROJECT
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
       volumes:
       - name: wpdata
         emptyDir: {}
