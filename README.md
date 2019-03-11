@@ -17,4 +17,4 @@
   * kubernetes main yaml are in @kubernetes/wordpress.yaml
   * WordPress are in  @wordpress
 
->Atencion! if you change the namespace from yaml's you will need to change at https://github.com/k4izen/nginx/blob/master/nginx/conf.d/upstream.conf on line 4,8 and at https://github.com/k4izen/wordpress-kubernetes-infrastructure/blob/master/wordpress/config/application.php on line 37
+>Attention! if you change the namespace from yaml's you will need to change at https://github.com/k4izen/nginx/blob/master/nginx/conf.d/upstream.conf on line 4,8 and at https://github.com/k4izen/wordpress-kubernetes-infrastructure/blob/master/wordpress/config/application.php on line 37
