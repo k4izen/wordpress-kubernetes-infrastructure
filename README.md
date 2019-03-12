@@ -35,3 +35,17 @@ kubectl describe configmap  --namespace=wpk8s
 kubectl describe configmap wordpress-kubernetes-infrastructure  --namespace=wpk8s
 kubectl describe secrets wordpress-mysql-user-password  --namespace=wpk8s
 ```
+
+* you run the kubernetes/wordpress.yaml now
+```sh
+kubectl create -f kubernetes/wordpress.yaml
+```
+![Succ02](kubernetes/images/kccreated.png)
+```sh
+kubectl get pods --namespace=wpk8s
+```
+![Succ03](kubernetes/images/kcpods.png)
+```sh
+kubectl get svc --namespace=wpk8s
+```
+![Succ04](kubernetes/images/kcsvc.png)
