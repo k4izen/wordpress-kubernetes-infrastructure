@@ -49,3 +49,16 @@ kubectl get pods --namespace=wpk8s
 kubectl get svc --namespace=wpk8s
 ```
 ![Succ04](kubernetes/images/kcsvc.png)
+
+```sh
+kubectl get hpa --namespace=wpk8s
+```
+![Succ05](kubernetes/images/kchpa.png)
+
+you can scale your pods now manually or automatic thru metrics server
+
+```sh
+kubectl scale deploy nginx --replicas=6 --namespace=wpk8s
+kubectl scale deploy php --replicas=9 --namespace=wpk8s
+```
+
