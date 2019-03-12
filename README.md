@@ -18,3 +18,20 @@
   * WordPress are in  @wordpress
 
 >Attention! if you change the namespace from yaml's you will need to change at https://github.com/k4izen/nginx/blob/master/nginx/conf.d/upstream.conf on line 4,8 and at https://github.com/k4izen/wordpress-kubernetes-infrastructure/blob/master/wordpress/config/application.php on line 37
+
+### Steps to mount your own structure based on this project
+* rename the file kubernetes/keys/secrets-example.yaml to kubernetes/keys/secrets.yaml and edit it with your variables and site name.
+
+```sh
+kubectl create -f kubernetes/keys/secrets.yaml 
+```
+
+![Succ01](kubernetes/images/keys.png)
+
+to check if this part is working you run this commands and see the configuration
+```sh
+kubectl get configmap  --namespace=wpk8s
+kubectl describe configmap  --namespace=wpk8s
+kubectl describe configmap wordpress-kubernetes-infrastructure  --namespace=wpk8s
+kubectl describe secrets wordpress-mysql-user-password  --namespace=wpk8s
+```
