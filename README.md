@@ -113,3 +113,7 @@ limits:
   cpu: "60m"
 ```
 
+This is a long case of study feel free to comment, fork and edit everything to work better for your needs.
+## Authors
+
+* **Mesaque Silva** - *DevOps* - [linkedin](https://www.linkedin.com/in/mesaquesilva/)
