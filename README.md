@@ -62,3 +62,50 @@ kubectl scale deploy nginx --replicas=6 --namespace=wpk8s
 kubectl scale deploy php --replicas=9 --namespace=wpk8s
 ```
 
+## About WordPress
+
+roots.io/bedrock/ WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure.
+
+[more info](https://roots.io/bedrock/)
+
+in the kubernetes/wordpress.yaml at line 120 we have commands 
+```sh
+git clone --single-branch -- https://github.com/k4izen/wordpress-kubernetes-infrastructure.git /PROJECT && 
+cd /PROJECT/wordpress &&
+composer install --no-interaction --optimize-autoloader --no-dev
+```
+
+if you need to change something this is where you can do it.
+
+
+## About autoscalling
+
+```
+(PHP - service)
+minReplicas: 1
+maxReplicas: 40
+targetCPUUtilizationPercentage: 80
+
+(Nginx - service)
+minReplicas: 1
+maxReplicas: 15
+targetCPUUtilizationPercentage: 80
+
+---
+
+(PHP resource limits)
+requests:
+ memory: "64Mi"
+ cpu: "250m"
+limits:
+  memory: "128Mi"
+  cpu: "500m"
+(Nginx resource limits)
+requests:
+  memory: "30Mi"
+  cpu: "15m"
+limits:
+  memory: "80Mi"
+  cpu: "60m"
+```
+
