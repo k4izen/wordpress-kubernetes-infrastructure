@@ -77,6 +77,8 @@ composer install --no-interaction --optimize-autoloader --no-dev
 
 if you need to change something this is where you can do it.
 
+> Files are not shared between pods so you need to configure some CDN service to keep your uploads safe outside the pod
+> To purge redis cache there is a plugin called *Nginx Helper* in this project , active him and go to wp-admin/options-general.php?page=nginx , check the box [x]Enable Purge and radio button (x)Redis cache
 
 ## About autoscalling
 
