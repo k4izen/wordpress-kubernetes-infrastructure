@@ -6,7 +6,7 @@
 
 * You need a MySQL cloud solution configured and accessible.
 
-> This project is not intented for non accustomed users with cloud solutions because we will not abord some techinal aspects, we assume you know configure your cloud and you have a litle knowlogment about kubernetes
+> This project is not intented for non accustomed users with cloud solutions because we will not abord some techinal aspects, we assume you know to configure your cloud and you have a litle knowlogment about kubernetes.
 
 ## An overview About this project
 * Docker images
@@ -40,7 +40,7 @@ kubectl describe configmap wordpress-kubernetes-infrastructure  --namespace=wpk8
 kubectl describe secrets wordpress-mysql-user-password  --namespace=wpk8s
 ```
 
-* you run the kubernetes/wordpress.yaml now
+* you can now run  kubernetes/wordpress.yaml
 ```sh
 kubectl create -f kubernetes/wordpress.yaml
 ```
@@ -68,18 +68,15 @@ kubectl scale deploy php --replicas=9 --namespace=wpk8s
 
 ## About WordPress
 
-roots.io/bedrock/ WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure.
+roots.io/bedrock/ WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure. [more info](https://roots.io/bedrock/)
 
-[more info](https://roots.io/bedrock/)
-
-in the kubernetes/wordpress.yaml at line 120 we have commands 
+in the kubernetes/wordpress.yaml at line 120 we have these commands 
 ```sh
 git clone --single-branch -- https://github.com/k4izen/wordpress-kubernetes-infrastructure.git /PROJECT && 
 cd /PROJECT/wordpress &&
 composer install --no-interaction --optimize-autoloader --no-dev
 ```
-
-if you need to change something this is where you can do it.
+so if you need to change something this is where you can do it.
 
 - Files are not shared between pods so you need to configure some CDN service to keep your uploads safe outside the pod
 
