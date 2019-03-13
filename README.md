@@ -16,6 +16,10 @@
   * secret keys are in @kubernetes/keys/secrets-example.yaml
   * kubernetes main yaml are in @kubernetes/wordpress.yaml
   * WordPress are in  @wordpress
+* Technical Specs
+  * [Openresty build](http://openresty.org/en/) is a full-fledged web platform that integrates the standard Nginx core, LuaJIT, many carefully written Lua libraries, lots of high quality 3rd-party Nginx modules, and most of their external dependencies. It is designed to help developers easily build scalable web applications, web services, and dynamic web gateways.
+  * You can to scale separately services like if you need more to process  some dynamic files (*.php) scale the PHP service or may you need more parallelism at some static file, scale the Nginx service.
+  * About cache this project already have REDIS configured at nginx nivel
 
 >Attention! if you change the namespace from yaml's you will need to change at https://github.com/k4izen/nginx/blob/master/nginx/conf.d/upstream.conf on line 4,8 and at https://github.com/k4izen/wordpress-kubernetes-infrastructure/blob/master/wordpress/config/application.php on line 37
 
@@ -77,8 +81,9 @@ composer install --no-interaction --optimize-autoloader --no-dev
 
 if you need to change something this is where you can do it.
 
-> Files are not shared between pods so you need to configure some CDN service to keep your uploads safe outside the pod
-> To purge redis cache there is a plugin called *Nginx Helper* in this project , active him and go to wp-admin/options-general.php?page=nginx , check the box [x]Enable Purge and radio button (x)Redis cache
+- Files are not shared between pods so you need to configure some CDN service to keep your uploads safe outside the pod
+
+- To purge redis cache there is a plugin called *Nginx Helper* in this project , active him and go to wp-admin/options-general.php?page=nginx , check the box [x]Enable Purge and radio button (x)Redis cache
 
 ## About autoscalling
 
