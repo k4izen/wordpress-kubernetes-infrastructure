@@ -1,4 +1,5 @@
 # WordPress on a Kubernetes Structure
+![k8s-drawn](kubernetes/images/k4izen-k8s.png)
 
 ## Before you begin
 
@@ -19,7 +20,7 @@
 * Technical Specs
   * [Openresty build](http://openresty.org/en/) is a full-fledged web platform that integrates the standard Nginx core, LuaJIT, many carefully written Lua libraries, lots of high quality 3rd-party Nginx modules, and most of their external dependencies. It is designed to help developers easily build scalable web applications, web services, and dynamic web gateways.
   * You can to scale separately services like if you need more to process  some dynamic files (*.php) scale the PHP service or may you need more parallelism at some static file, scale the Nginx service.
-  * About cache this project already have REDIS configured at nginx nivel
+  * About cache this project already have REDIS configured at nginx level
 
 >Attention! if you change the namespace from yaml's you will need to change at https://github.com/k4izen/nginx/blob/master/nginx/conf.d/upstream.conf on line 4,8 and at https://github.com/k4izen/wordpress-kubernetes-infrastructure/blob/master/wordpress/config/application.php on line 37
 
